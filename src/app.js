@@ -3,6 +3,9 @@ const db = require('./db');
 const app = express();
 app.use(express.json());
 app.use(express.static('public'));
+app.get('/', (req, res) => {
+    res.send('API fonctionne correctement !');
+});
 app.get('/users/:id', async (req, res) => {
     const id = Number(req.params.id);
     if (!Number.isInteger(id)) {
